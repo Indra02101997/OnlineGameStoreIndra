@@ -1,0 +1,128 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.master.cs" Inherits="Admin" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.js"></script>
+<script type="text/javascript">
+    $(function () {
+        blinkeffect('#lblPageName');
+    })
+    function blinkeffect(selector) {
+        $(selector).fadeOut('slow', function () {
+            $(this).fadeIn('slow', function () {
+                blinkeffect(this);
+            });
+        });
+    }
+</script>
+    <style type="text/css">
+        #cssmenu2 {
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, Sans-Serif;
+  font-size: 18px;
+  line-height: 30px;
+  text-transform: uppercase;
+  text-align:center;
+  width :100%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:0px;
+}
+#cssmenu2 ul {
+	
+	margin: 0;
+	padding: 0;
+	list-style: none;
+    width: 1367px;
+    height: 213px;
+        }
+#cssmenu2 ul li {
+	display: block;
+	position: relative;
+	float:  left;
+	background-image: url('/OnlineGameStoreIndra/Textures/texture3.JPG');
+	 margin-right:2px;	
+}
+ #cssmenu2 > ul li.has-sub {
+    background-image: url('/OnlineGameStoreIndra/Textures/texture3.JPG');
+            top: 0px;
+            left: 0px;
+            height: 40px;
+            width: 336px;
+        } 
+  #cssmenu2 > ul li.has-sub ul { 
+ width:336px; 
+}
+#cssmenu2 li ul {
+	display: none;
+    position:absolute;
+    left:0;
+     border: none;
+}
+#cssmenu2 ul li a {
+	 display: block;
+  padding: 6px 31px 6px 31px;
+  text-decoration: none;
+  color: White;
+  width: 272px;
+  margin-left: 0px;
+        }
+#cssmenu2 ul li a:hover {
+	background-image: url('/OnlineGameStoreIndra/Textures/texture3.JPG');
+	color:firebrick;
+}
+#cssmenu2 li:hover ul {
+	display: block;
+	position: absolute;
+}
+#cssmenu2 li:hover li {
+	float: none;
+	font-size: 18px;
+}
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <div id="cssmenu2" style="position: relative; width: 1372px; top: -5px; left: -5px; height: 67px;">
+            <ul style="border: medium solid #FFFF00; background-color: #FFFF99; background-image: url('/OnlineGameStoreIndra/Textures/texture2.JPG'); width: 1366px;">
+                <li class="has-sub" style=" font-family: Algerian; font-size: xx-large; background-image: url('/OnlineGameStoreIndra/Textures/texture2.JPG');"><a href="#" style="background-image: url('/OnlineGameStoreIndra/Textures/texture2.JPG');">Views</a>
+                <ul>
+                    <li style="font-family: Algerian; font-size: 25px;"><a href="ProductInfo.aspx" >View Products</a></li>
+                    <li style="font-family: Algerian; font-size: 25px;"><a href="CategoryView.aspx" >View Categories</a></li>
+                    <li style="font-family: Algerian; font-size: 25px;"><a href="Customer.aspx" >View Customers</a></li>
+                    <li style="font-family: Algerian; font-size: 25px;"><a href="Orders.aspx" >View Orders</a></li>
+                </ul>
+                </li>
+                <li class="has-sub" style=" font-family: Algerian; font-size: xx-large;"><a href="#" style=" background-image: url('/OnlineGameStoreIndra/Textures/texture2.JPG')">Add</a>
+                <ul>
+                    <li style="font-family: Algerian; font-size: 25px;"><a href="ProductAdd.aspx" >Add Products</a></li>
+                    <li style="font-family: Algerian; font-size: 25px;"><a href="CategoryAdd.aspx" >Add Categories</a></li>
+                </ul>
+                </li>
+                <li class="has-sub" style="font-family: Algerian; font-size: 25px;"><a href="UserFeedback.aspx" style="background-image: url('/OnlineGameStoreIndra/Textures/texture2.JPG')">Feedback</a>
+                </li>
+                <li class="has-sub" style="font-family: Algerian; font-size: 25px;"><a href="#" style="background-image: url('/OnlineGameStoreIndra/Textures/texture2.JPG')">Profile</a>
+                    <ul>
+                        <li class="has-sub" style="font-family: Algerian; font-size: 25px;"><a href="MyProfile.aspx">View Profile</a></li>
+                        <li class="has-sub" style="font-family: Algerian; font-size: 25px;"><asp:LinkButton ID="logout" runat="server" OnClick="btnLogout" Text="Logout"></asp:LinkButton></li>
+                    </ul>
+                </li>
+                <li>
+                    <br />
+                </li>
+            </ul>
+        </div>
+        <div style="position:relative; top: 76px; left: 448px; height: 35px; width: 496px;">
+            <asp:Label ID="lblPageName" runat="server" Text="Information" Font-Bold="True" Font-Names="Algerian" Font-Size="25pt" Font-Underline="True" ForeColor="#FFFF99"></asp:Label>
+        </div>
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>
